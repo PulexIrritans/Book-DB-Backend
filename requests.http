@@ -1,4 +1,24 @@
 GET http://localhost:3000/ HTTP/1.1
 
 ###
-GET http://localhost:3000/62593b206f53e348ea96e8e HTTP/1.1
+GET http://localhost:3000/6259b206f53e348ea96e8e HTTP/1.1
+
+###
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+  "title": "Weniger schlecht programmieren 3",
+  "isbn": "978-3-89721-567-2",
+  "author": "Kathrin Passig & Johannes Jander",
+  "published_date": "2013-01-01T23:00:00:000Z",
+  "publisher": "O'Reilly"
+}
+
+###
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "author": "Tester"
+}

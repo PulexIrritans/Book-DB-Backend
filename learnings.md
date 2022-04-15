@@ -29,7 +29,26 @@ You can define the request handling directly in express - no need to first do it
 
 Whatever db you provide here, it will be set up automatically in the mongodb if not already existent: mongoose.connect("mongodb://localhost:27017/yourdb")
 
-Also the collection will be automatically created. Be sure to name the collection in singular, mondoDB will change it plural automatically always!
+Also the collection will be automatically created. Be sure to name the collection in singular, mongoDB will change it plural automatically always!
+
+Also check, these are very important to have:
+const express = require("express");
+const mongoose = require("mongoose");
+
+const Book = require("./models/book.js")
+
+const app = express();
+const port = 3000;
+
+mongoose.connect("mongodb://localhost:27017/booksexercise")
+
+app.use(express.json()); ----> This here is needed so that json POST requests can be handled!!!
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
 
 Question: When should we think about error handling? Could we set up only the happy case first and take care of error handling only later when the happy cases work fine or should it be taken care of directly?
+
+Question: What could be a use case for one default error message, normally we would be more explicit with errors, right?
 

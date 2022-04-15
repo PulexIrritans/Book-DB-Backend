@@ -8,6 +8,8 @@ const port = 3000;
 
 mongoose.connect("mongodb://localhost:27017/booksexercise")
 
+app.use(express.json());
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
@@ -27,10 +29,34 @@ app.get("/:id", (req, res, next) => {
         res.send(data);
     })
     .catch(() => {
-        next()
+        next() //This will move on to default error message if defined.
+    //Could also be done manually as follows:
+    //  .catch((error) => {
+    //    res.status(400).send({error: error.message});    
     });
 });
 
+app.post("/", (req, res, next) => {
+  const title = req.body.title;
+  const isbn = req.body.isbn;
+  const author = req.body.author;
+  const description = req.body.description;
+  const published_date = req.body.published_date;
+  const number_of_pages = req.body.number_of_pages;
+  const publisher = req.body.publisher;
+
+  const newBook = Book({title, isbn, author, description, published_date, number_of_pages, publisher})
+  newBook
+  .save()
+  .then((data) => {
+      res.status(201).send(data);
+  })
+  .catch((error) => {
+      res.status(400).json({error: error.message})
+  });
+});
+
+// Default error message.
 app.use((req, res, nex) => {
     res.status(400).send("OH BOY, AN ERROR OCCURED")
 });
