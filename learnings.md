@@ -18,11 +18,14 @@ I decided to use "null" for no given pages and empty string for description. Wha
 Inserted basic error handling for find by id.
 
 # Install express
+Copy basic express server setup from express docs used for establishing express server.
 
 
 
 
 # Conclusion - Ideas for quicker workflow and more open questions to workflow
 When setting up the schema also make it type safe immediatly.
+You can define the request handling directly in express - no need to first do it outside of express.
+
 Question: When should we think about error handling? Could we set up only the happy case first and take care of error handling only later when the happy cases work fine or should it be taken care of directly?
 

@@ -1,11 +1,19 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
+const Book = require("./models/book.js")
+
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+mongoose.connect("mongodb://localhost:27017/booksexercise")
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+app.get("/", (req, res) => {
+    Book.find({}).then((data) => {
+        res.send(data);
+    });
 });
