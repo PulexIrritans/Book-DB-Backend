@@ -12,7 +12,7 @@ const bookSchema = mongoose.Schema({
 
 const Book = mongoose.model("book", bookSchema);
 
-mongoose.connect("mongodb://localhost:27017/bookexercise").then(() => {
+mongoose.connect("mongodb://localhost:27017/booksexercise").then(() => {
   console.log("connected");
   Book.find({}).then((data) => {
     console.log(data);
