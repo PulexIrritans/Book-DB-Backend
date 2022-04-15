@@ -29,6 +29,7 @@ Book.findById("ffwe3453453456hjt5k4l3").then((data) => {
 })
 .catch((error) => {
     console.log("ERROR");
+    process.exit()
 });
 
 // create a book and save in the database
