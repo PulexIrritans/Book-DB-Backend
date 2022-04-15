@@ -27,5 +27,9 @@ Copy basic express server setup from express docs used for establishing express 
 When setting up the schema also make it type safe immediatly.
 You can define the request handling directly in express - no need to first do it outside of express.
 
+Whatever db you provide here, it will be set up automatically in the mongodb if not already existent: mongoose.connect("mongodb://localhost:27017/yourdb")
+
+Also the collection will be automatically created. Be sure to name the collection in singular, mondoDB will change it plural automatically always!
+
 Question: When should we think about error handling? Could we set up only the happy case first and take care of error handling only later when the happy cases work fine or should it be taken care of directly?
 
