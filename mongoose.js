@@ -45,7 +45,6 @@ mongoose.connect("mongodb://localhost:27017/booksexercise").then(() => {
 // })
 
 // delete a book
-// delete a student
 
 Book.findByIdAndDelete("6259352f8f2f8081abdf851d").then((data) => {
     console.log(data);
