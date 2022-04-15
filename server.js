@@ -56,6 +56,29 @@ app.post("/", (req, res, next) => {
   });
 });
 
+app.delete("/:id", (req, res, next) => {
+    const id = req.params.id;
+    Book.findByIdAndDelete(id)
+    .then((data) => {
+        res.status(200).send(data);
+    })
+    .catch(() => {
+        next()
+    })
+})
+
+app.patch("/:id", (req, res, next) => {
+    const id = req.params.id;
+    const updatedObject = req.body;
+    Book.findByIdAndUpdate(id, {...updatedObject}, {new: true})
+    .then((data) => {
+        res.status(200).send(data);
+    })
+    .catch(() => {
+        next()
+    })
+})
+
 // Default error message.
 app.use((req, res, nex) => {
     res.status(400).send("OH BOY, AN ERROR OCCURED")

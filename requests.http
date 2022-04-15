@@ -25,3 +25,11 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/625960c19d5ca2620aea0f26 HTTP/1.1
+
+###
+PATCH http://localhost:3000/62592c3f1cdb4f29ded3d675 HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "Bis zu seinem elften Geburtstag glaubt Harry, er sei ein ganz normaler Junge. Doch dann erfährt er, dass er sich an der Schule für Hexerei und Zauberei einfinden soll - denn er ist ein Zauberer! In Hogwarts stürzt Harry von einem Abentuer ins nächste und muss gegen Bestien, Mitschüler und Fabelwesen kämpfen. Da ist es gut, dass er schon Freunde gefunden hat, die ihm im Kampf gegen die dunklen Mächte zur Seite stehen."
+}
