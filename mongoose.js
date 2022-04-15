@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const bookSchema = mongoose.Schema({
-  title: String,
-  isbn: String,
-  author: String,
-  description: String,
-  published_date: String,
-  number_of_pages: Number,
-  publisher: String,
+  title: { type: String, required: true},
+  isbn: {type: String, required: true},
+  author: {type: String, required: true},
+  description: {type: String, default: ""},
+  published_date: {type: String, required: true},
+  number_of_pages: {type: Number, default: null},
+  publisher: {type: String, required: true},
 });
 
 const Book = mongoose.model("book", bookSchema);
@@ -29,25 +29,23 @@ mongoose.connect("mongodb://localhost:27017/booksexercise").then(() => {
 // });
 
 // create a book and save in the database
-// const newBook = Book({
-//   title: "Rebellinnen",
-//   isbn: "3-88619-230-X",
-//   author: "Gillian G. Gaar",
-//   description: "Die Geschichte der Frauen in der Rockmusik",
-//   published_date: "1992-01-01T23:00:00:000Z",
-//   number_of_pages: 462,
-//   publisher: "Argument",
-// })
+const newBook = Book({
+  title: "Agiles Projektmanagement",
+  isbn: "978-3-648-06517-4",
+  author: "Jörg Preußig",
+  published_date: "2015-01-01T23:00:00:000Z",
+  publisher: "Haufe",
+})
 
-// newBook.save().then((data) => {
-//     console.log(data);
-//     process.exit();
-// })
+newBook.save().then((data) => {
+    console.log(data);
+    process.exit();
+})
 
 // delete a book
 
-Book.findByIdAndDelete("6259352f8f2f8081abdf851d").then((data) => {
-    console.log(data);
-    process.exit();
-  });
+// Book.findByIdAndDelete("62593970629a95cca86c91be").then((data) => {
+//     console.log(data);
+//     process.exit();
+//   });
 });
