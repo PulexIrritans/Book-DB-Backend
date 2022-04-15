@@ -1,14 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors')
 
 const Book = require("./models/book.js")
 
 const app = express();
-const port = 3000;
+const port = 3050;
 
 mongoose.connect("mongodb://localhost:27017/booksexercise")
 
 app.use(express.json());
+app.use(cors())
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
