@@ -23,24 +23,27 @@ mongoose.connect("mongodb://localhost:27017/booksexercise").then(() => {
 
 
 // get a book by id
-// Book.findById("62592c3f1cdb4f29ded3d675").then((data) => {
-//     console.log(data);
-//     process.exit()
-// });
+Book.findById("ffwe3453453456hjt5k4l3").then((data) => {
+    console.log(data);
+    process.exit()
+})
+.catch((error) => {
+    console.log("ERROR");
+});
 
 // create a book and save in the database
-const newBook = Book({
-  title: "Agiles Projektmanagement",
-  isbn: "978-3-648-06517-4",
-  author: "Jörg Preußig",
-  published_date: "2015-01-01T23:00:00:000Z",
-  publisher: "Haufe",
-})
+// const newBook = Book({
+//   title: "Agiles Projektmanagement",
+//   isbn: "978-3-648-06517-4",
+//   author: "Jörg Preußig",
+//   published_date: "2015-01-01T23:00:00:000Z",
+//   publisher: "Haufe",
+// })
 
-newBook.save().then((data) => {
-    console.log(data);
-    process.exit();
-})
+// newBook.save().then((data) => {
+//     console.log(data);
+//     process.exit();
+// })
 
 // delete a book
 
