@@ -15,6 +15,9 @@ The __v in MongoDB is only added when adding an element through mongoose but not
 # Making the Schema type-save
 Means that I explicitly define what values are required for setting up a new item and what default values might be.
 I decided to use "null" for no given pages and empty string for description. What is the best practice here if there is no sensible default value.
+Inserted basic error handling for find by id.
+
+# Install express
 
 
 
