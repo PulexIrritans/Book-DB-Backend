@@ -30,3 +30,7 @@ app.get("/:id", (req, res, next) => {
         next()
     });
 });
+
+app.use((req, res, nex) => {
+    res.status(400).send("OH BOY, AN ERROR OCCURED")
+});
