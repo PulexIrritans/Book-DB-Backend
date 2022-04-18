@@ -20,6 +20,9 @@ Inserted basic error handling for find by id.
 # Install express
 Copy basic express server setup from express docs used for establishing express server.
 
+# Set up all requests routes with express
+If you want to send back the complete current array after a POST request you have to "find" all db entries for collection and send these data back.
+
 
 
 
@@ -51,4 +54,6 @@ app.listen(port, () => {
 Question: When should we think about error handling? Could we set up only the happy case first and take care of error handling only later when the happy cases work fine or should it be taken care of directly?
 
 Question: What could be a use case for one default error message, normally we would be more explicit with errors, right?
+
+Question: Handling date formats (where Frontend/ backend and how to convert them to consistent format)
 

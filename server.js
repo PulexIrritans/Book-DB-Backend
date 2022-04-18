@@ -50,8 +50,10 @@ app.post("/", (req, res, next) => {
   const newBook = Book({title, isbn, author, description, published_date, number_of_pages, publisher})
   newBook
   .save()
-  .then((data) => {
-      res.status(201).send(data);
+  .then((_) => {
+      Book.find({}).then((data) => {
+          res.status(201).send(data);
+      });
   })
   .catch((error) => {
       res.status(400).json({error: error.message})
