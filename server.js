@@ -10,7 +10,10 @@ const port = 3050;
 mongoose.connect("mongodb://localhost:27017/booksexercise")
 
 app.use(express.json());
-app.use(cors())
+//Add a more explicit origin for valid requests.
+app.use(cors({
+    origin: "https://localhost:3000"
+}));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -38,6 +41,10 @@ app.get("/:id", (req, res, next) => {
     });
 });
 
+
+// Hier könnte man validierungslogik schreiben, z.B. if/ else
+// Wäre auch userfreundlicher, da mongoose das nur häppchenweise
+// liefert.
 app.post("/", (req, res, next) => {
   const title = req.body.title;
   const isbn = req.body.isbn;
@@ -48,11 +55,12 @@ app.post("/", (req, res, next) => {
   const publisher = req.body.publisher;
 
   const newBook = Book({title, isbn, author, description, published_date, number_of_pages, publisher})
+        // Could also be destructured with ...req.body
   newBook
   .save()
   .then((_) => {
       Book.find({}).then((data) => {
-          res.status(201).send(data);
+          res.status(201).json(data);
       });
   })
   .catch((error) => {
